@@ -1,0 +1,33 @@
+{
+  // Editor
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "window.commandCenter": true,
+  // Files
+  "files.eol": "\n",
+  "files.autoSave": "afterDelay",
+  "files.enableTrash": true,
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  },
+  // Git graph
+  "git-graph.date.format": "Date & Time",
+  "git-graph.date.type": "Commit Date",
+  "git-graph.fileEncoding": "utf8",
+  // Prettier
+  "prettier.enable": true,
+  "prettier.arrowParens": "avoid",
+  "prettier.bracketSpacing": true,
+  "prettier.bracketSameLine": true,
+  "prettier.endOfLine": "lf",
+  "prettier.jsxSingleQuote": true,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "none"
+}
