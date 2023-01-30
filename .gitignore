@@ -1,0 +1,5 @@
+# pnpm
+.pnpm-store
+
+# deps
+node_modules
