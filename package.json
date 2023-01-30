@@ -21,5 +21,10 @@
     "eslint": "^8.33.0",
     "husky": "^8.0.3",
     "prettier": "^2.8.3"
+  },
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
