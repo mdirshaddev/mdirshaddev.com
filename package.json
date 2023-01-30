@@ -4,7 +4,10 @@
   "description": "",
   "version": "0.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "format": "prettier -c .",
+    "format:write": "prettier -w ."
+  },
   "keywords": [],
   "author": {
     "name": "Md Irshad",
