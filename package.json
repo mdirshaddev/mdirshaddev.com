@@ -1,0 +1,17 @@
+{
+  "name": "mdirshaddev.github.io",
+  "homepage": "https://mdirshaddev.github.io",
+  "description": "",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {},
+  "keywords": [],
+  "author": {
+    "name": "Md Irshad",
+    "email": "mdirshaddev+github@gmail.com",
+    "url": "https://mdirshaddev.vercel.app"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
