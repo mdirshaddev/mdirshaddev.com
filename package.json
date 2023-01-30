@@ -12,6 +12,7 @@
     "url": "https://mdirshaddev.vercel.app"
   },
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "^2.8.3"
+  }
 }
