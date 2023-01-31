@@ -1,10 +1,20 @@
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
-  list-style: none;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    list-style: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
