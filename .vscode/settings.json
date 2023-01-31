@@ -2,6 +2,10 @@
   // Editor
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.formatOnPaste": true,
+  // Window
   "window.commandCenter": true,
   // Files
   "files.eol": "\n",
