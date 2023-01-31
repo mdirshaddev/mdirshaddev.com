@@ -12,5 +12,11 @@ pnpm run format ||
   false;
 )
 
+pnpm --filter web build ||
+(
+  echo '🔨❌ Yoo, you have a problem in your code. Check Build 🔨❌
+    Run pnpm run build, add changes and try commit again.';
+  false;
+)
 
 echo '🎉 No error found: committing this now.... ✨🚀🏄‍♂️🍻'
