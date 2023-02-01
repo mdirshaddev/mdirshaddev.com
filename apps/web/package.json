@@ -4,6 +4,7 @@
   "description": "My Personal Website using Next.js and other utilities packages or libraries",
   "private": true,
   "scripts": {
+    "start": "next start",
     "dev": "next dev",
     "dev:debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "dev:turbo": "next dev --turbo",
