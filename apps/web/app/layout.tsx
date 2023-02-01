@@ -1,9 +1,15 @@
 // Tailwind Global CSS File
 import 'src/styles/global.css';
 
-// Custom Providers
-import { ThemeProvider } from 'src/contexts';
+// My Own implementation of Theme Provider
+import { ThemeProvider } from 'src/modules';
 
+/**
+ * It returns an HTML document with a head and a body. The body contains a ThemeProvider component that
+ * wraps the children of the RootLayout component
+ * @param props - React.PropsWithChildren
+ * @returns A React component that renders an HTML document.
+ */
 export default function RootLayout(props: React.PropsWithChildren) {
   return (
     <html lang='en'>
