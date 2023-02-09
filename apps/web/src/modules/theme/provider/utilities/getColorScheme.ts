@@ -1,4 +1,4 @@
-// Theme Typings
+// Color Scheme Typings
 import type { ColorScheme } from '../../types';
 
 // Constants

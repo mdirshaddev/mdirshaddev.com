@@ -1,6 +1,6 @@
 'use client';
 
-// Theme Typings
+// Color Scheme Typings
 import type { IColorSchemeScript } from '../../types';
 
 // React Typings
@@ -28,18 +28,9 @@ const ColorSchemeScript: FC<IColorSchemeScript> = memo(
     var mode = localStorage.getItem('${props.colorSchemeStorageKey}');
     var supportDarkMode =
       window.matchMedia('${MEDIA}').matches === true;
-    if (mode === 'light') {
-      document.documentElement.removeAttribute('data-mode');
-    } else {
-      document.documentElement.setAttribute('data-mode', mode);
-    }
-    if (mode === 'system') {
-      if (supportDarkMode) {
-        document.documentElement.setAttribute('data-mode', 'dark');
-      } else {
-        document.documentElement.removeAttribute('data-mode');
-      }
-    }
+    if (!mode && supportDarkMode) document.documentElement.setAttribute('data-mode', '${props.defaultColorScheme}');
+    if (!mode) return;
+    document.documentElement.setAttribute('data-mode', mode);
   } catch (e) {
     console.log(e)
   }
@@ -49,7 +40,6 @@ const ColorSchemeScript: FC<IColorSchemeScript> = memo(
       <Fragment>
         <script
           id='color-scheme-hydration'
-          nonce={props.nonce}
           dangerouslySetInnerHTML={{
             __html: scriptSrc
           }}

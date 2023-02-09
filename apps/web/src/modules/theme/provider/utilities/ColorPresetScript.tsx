@@ -1,6 +1,6 @@
 'use client';
 
-// Theme Typings
+// Color Preset Typings
 import type { IColorPresetScript } from '../../types';
 
 // React Typings
@@ -38,7 +38,6 @@ const ColorPresetScript: FC<IColorPresetScript> = memo(
       <Fragment>
         <script
           id='color-preset-hydration'
-          nonce={props.nonce}
           dangerouslySetInnerHTML={{
             __html: scriptSrc
           }}

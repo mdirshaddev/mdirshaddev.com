@@ -2,21 +2,20 @@ import { useContext } from 'react';
 import { ThemeContext } from '..';
 
 /**
- * It returns the colorScheme, setColorScheme, and resolvedColorScheme from the ThemeContext
- * @returns An object with three properties: colorScheme, setColorScheme, and resolvedColorScheme.
+ * It returns the colorScheme, setColorScheme, colorPreset, and setColorPreset values from the
+ * ThemeContext
+ * @returns An object with the following properties:
+ * colorScheme,
+ * setColorScheme,
+ * colorPreset,
+ * setColorPreset
  */
 const useTheme = () => {
-  const {
-    colorScheme,
-    setColorScheme,
-    resolvedColorScheme,
-    colorPreset,
-    setColorPreset
-  } = useContext(ThemeContext);
+  const { colorScheme, setColorScheme, colorPreset, setColorPreset } =
+    useContext(ThemeContext);
   return {
     colorScheme,
     setColorScheme,
-    resolvedColorScheme,
     colorPreset,
     setColorPreset
   };

@@ -1,6 +1,6 @@
 'use client';
 
-// Theme Types
+// Custom Typings for Color Scheme and Preset
 import type {
   ColorPreset,
   ColorScheme,
@@ -21,26 +21,27 @@ import { ThemeContext } from '..';
 import { MEDIA } from 'src/constants/client';
 
 // Utilities
-import { getSystemColorScheme } from './utilities/getSystemColorScheme';
-import { ColorSchemeScript } from './utilities/ColorSchemeScript';
-import { getColorScheme } from './utilities/getColorScheme';
-import { ColorPresetScript } from './utilities/ColorPresetScript';
-import { getColorPreset } from './utilities/getColorPreset';
+import {
+  ColorPresetScript,
+  ColorSchemeScript,
+  getColorPreset,
+  getColorScheme,
+  getSystemColorScheme
+} from './utilities';
 
 /**
  * It's a React component that provides a context value to its children
- * @param {IThemeProvider}  - `enableSystem` - whether to enable the system theme
+ * @param {IThemeProvider} IThemeProvider - theme props containing storage key of color scheme and preset
  * @returns A ThemeProvider component that takes in a bunch of props and returns a
- * ThemeContext.Provider component that takes in a providerValue and returns a ThemeScript component
+ * ThemeContext.Provider component that takes in a providerValue and returns a ColorSchemeScript and ColorPresetScript component
  * and the children of the ThemeProvider component.
  */
 const ThemeProvider: FC<IThemeProvider> = ({
-  enableSystem = true,
   colorPresetStorageKey = 'colorPreset',
   colorSchemeStorageKey = 'colorScheme',
   ...props
 }: IThemeProvider) => {
-  const defaultColorScheme = enableSystem === true ? 'system' : 'dark';
+  const defaultColorScheme: ColorScheme = 'dark';
 
   const defaultColorPreset: ColorPreset = '#00AB55';
 
@@ -50,14 +51,6 @@ const ThemeProvider: FC<IThemeProvider> = ({
    */
   const [colorScheme, setColorScheme] = useState(() =>
     getColorScheme(colorSchemeStorageKey, defaultColorScheme)
-  );
-
-  /**
-   * It's a React hook that is used to
-   * set the initial value of the resolvedColorScheme state variable.
-   */
-  const [resolvedColorScheme, setResolvedColorScheme] = useState(() =>
-    getColorScheme(colorSchemeStorageKey)
   );
 
   /**
@@ -110,26 +103,23 @@ const ThemeProvider: FC<IThemeProvider> = ({
   }, []);
 
   /**
-   * Helper function for applyColorScheme
+   * It's a function that is called when
+   * the user wants to change the color scheme.
    */
   const applyColorScheme = useCallback((scheme: ColorScheme) => {
-    let resolved: unknown = scheme;
-    if (!resolved) return;
-
-    if (scheme === 'system' && enableSystem) {
-      resolved = getSystemColorScheme();
-    }
     const d = document.documentElement;
-    if (resolved === 'dark') {
-      d.setAttribute('data-mode', resolved as string);
+    if (scheme === 'dark') {
+      d.setAttribute('data-mode', scheme);
     }
-    if (resolved === 'light') {
-      d.removeAttribute('data-mode');
+    if (scheme === 'light') {
+      d.setAttribute('data-mode', '');
     }
+    localStorage.setItem(colorSchemeStorageKey, scheme);
   }, []);
 
   /**
-   * Whenever Color Scheme has been applied
+   * Whenever Color Scheme change is found
+   * triggers the update
    */
   useEffect(() => {
     // Apply Color Scheme on change of colorScheme value
@@ -137,7 +127,8 @@ const ThemeProvider: FC<IThemeProvider> = ({
   }, [colorScheme]);
 
   /**
-   * Helper function for applyColorPreset
+   * It's a function that is called when
+   * the user wants to change the color preset.
    */
   const applyColorPreset = useCallback((preset: ColorPreset) => {
     let resolved: unknown = preset;
@@ -150,7 +141,8 @@ const ThemeProvider: FC<IThemeProvider> = ({
   }, []);
 
   /**
-   * Whenever Color Preset has been applied
+   * Whenever Color Preset change is found
+   * triggers the update
    */
   useEffect(() => {
     // Apply Color Preset on change of colorPreset value
@@ -158,23 +150,20 @@ const ThemeProvider: FC<IThemeProvider> = ({
   }, [colorPreset]);
 
   /**
-   * Helper function
+   * Helper function for setting color scheme
+   * based on user system color scheme changes
    */
   const handleMediaQuery = useCallback(
     (e: MediaQueryList | MediaQueryListEvent) => {
       const resolved = getSystemColorScheme(e);
-      setResolvedColorScheme(resolved);
-      if (colorScheme === 'system' && enableSystem) {
-        // Apply the color scheme
-        applyColorScheme('system');
-      }
+      setColorScheme(resolved);
     },
     [colorScheme]
   );
 
   /**
    * Listen to Syste, Preference when user
-   * have selected theme to be system
+   * have selected color scheme
    */
   useEffect(() => {
     const media = window.matchMedia(MEDIA);
@@ -189,7 +178,7 @@ const ThemeProvider: FC<IThemeProvider> = ({
 
   /**
    * It's listening to the localStorage event
-   * and setting the colorScheme to the new value.
+   * and setting the color scheme to the new value.
    */
   useEffect(() => {
     const handleColorSchemeStorage = (e: StorageEvent) => {
@@ -214,29 +203,19 @@ const ThemeProvider: FC<IThemeProvider> = ({
   const providerValue: IThemeContext = useMemo(
     () => ({
       colorScheme: colorScheme,
-      resolvedColorScheme:
-        colorScheme === 'system' ? resolvedColorScheme : colorScheme,
       setColorScheme: setScheme,
       colorPreset: colorPreset,
       setColorPreset: setPreset,
       reset: resetAll
     }),
-    [
-      colorScheme,
-      resolvedColorScheme,
-      setScheme,
-      colorPreset,
-      setPreset,
-      resetAll
-    ]
+    [colorScheme, setScheme, colorPreset, setPreset, resetAll]
   );
 
   return (
     <ThemeContext.Provider value={providerValue}>
       <ColorSchemeScript
-        enableSystem={enableSystem}
         colorSchemeStorageKey={colorSchemeStorageKey}
-        {...props}
+        defaultColorScheme={defaultColorScheme}
       />
       <ColorPresetScript
         colorPresetStorageKey={colorPresetStorageKey}

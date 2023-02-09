@@ -12,7 +12,7 @@ export type ColorPreset =
 /**
  * Color Scheme
  */
-export type ColorScheme = 'dark' | 'light' | 'system';
+export type ColorScheme = 'dark' | 'light';
 
 /* Defining the type of the variable. */
 export interface IThemeContext {
@@ -20,14 +20,6 @@ export interface IThemeContext {
    * Defining the type of the variable.
    */
   colorScheme?: ColorScheme;
-  /**
-   * A variable that is used to store the value of the color scheme.
-   */
-  resolvedColorScheme?: ColorScheme;
-  /**
-   * A variable that is used to store the value of the color scheme.
-   */
-  systemColorScheme?: ColorScheme;
   /**
    * A function that takes a parameter of type ColorScheme and returns void.
    * @param colorScheme
@@ -38,10 +30,6 @@ export interface IThemeContext {
    * Defining the type of the variable.
    */
   colorPreset?: ColorPreset;
-  /**
-   * A variable that is used to store the value of the color scheme.
-   */
-  systemColorPreset?: ColorPreset;
   /**
    * A function that takes a parameter of type ColorPreset and returns void.
    *
@@ -56,12 +44,8 @@ export interface IThemeContext {
   reset: () => void;
 }
 
-/* Defining the type of the variable. */
+/* Extending the IThemeProvider interface with a new property. */
 export interface IThemeProvider extends React.PropsWithChildren {
-  /**
-   * A boolean that is used to enable the system.
-   */
-  enableSystem?: boolean;
   /**
    * A variable that is used to store the value of the color scheme.
    */
@@ -70,14 +54,12 @@ export interface IThemeProvider extends React.PropsWithChildren {
    * A variable that is used to store the value of the color scheme.
    */
   colorPresetStorageKey?: string;
-  /**
-   *
-   */
-  nonce?: string;
 }
 
 /* Extending the IThemeProvider interface with a new property. */
-export interface IColorSchemeScript extends IThemeProvider {}
+export interface IColorSchemeScript extends IThemeProvider {
+  defaultColorScheme: ColorScheme;
+}
 
 /* Extending the IThemeProvider interface with a new property. */
 export interface IColorPresetScript extends IThemeProvider {

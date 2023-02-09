@@ -1,4 +1,4 @@
-// Theme Typings
+// Color Preset Typings
 import type { ColorPreset } from '../../types';
 
 // Constants
