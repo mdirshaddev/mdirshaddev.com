@@ -17,7 +17,11 @@ module.exports = {
         'revert',
         'style',
         'test',
-        'config'
+        'config',
+        'audio',
+        'icons',
+        'bgimages',
+        'videos'
       ]
     ]
   }
