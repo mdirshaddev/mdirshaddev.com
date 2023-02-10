@@ -22,6 +22,9 @@ const nextConfig = {
   },
   typescript: {
     tsconfigPath: getTsConfigPath()
+  },
+  images: {
+    domains: ['github.githubassets.com']
   }
 };
 
