@@ -2,12 +2,12 @@
  * Multiple ColorPreset colors as type
  */
 export type ColorPreset =
-  | '#00AB55'
-  | '#3366FF'
-  | '#00B8D9'
-  | '#36B37E'
-  | '#FFAB00'
-  | '#FF5630';
+  | '0 171 85'
+  | '214 64 69'
+  | '0 204 136'
+  | '68 51 255'
+  | '255 157 0'
+  | '249 6 87';
 
 /**
  * Color Scheme

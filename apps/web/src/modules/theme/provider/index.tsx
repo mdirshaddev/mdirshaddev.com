@@ -43,7 +43,7 @@ const ThemeProvider: FC<IThemeProvider> = ({
 }: IThemeProvider) => {
   const defaultColorScheme: ColorScheme = 'dark';
 
-  const defaultColorPreset: ColorPreset = '#00AB55';
+  const defaultColorPreset: ColorPreset = '0 171 85';
 
   /**
    * It's a React hook that is used to
