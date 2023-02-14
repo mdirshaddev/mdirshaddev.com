@@ -9,3 +9,6 @@ node_modules
 
 # next
 **/.next
+
+# storybook build
+**/*-storybook-static
