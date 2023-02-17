@@ -6,16 +6,55 @@ module.exports = {
     extend: {
       colors: {
         palette: {
-          primary: 'var(--color-primary)',
-          secondary: 'var(--color-secondary)',
-          success: 'var(--color-success)',
-          info: 'var(--color-info)',
-          warning: 'var(--color-warning)',
-          error: 'var(--color-error)',
-          disabled: 'var(--color-disabled)'
-        }
+          primary: {
+            main: 'rgb(var(--color-primary) / <alpha-value>)'
+          },
+          secondary: {
+            main: 'rgb(var(--color-secondary) / <alpha-value>)'
+          },
+          success: {
+            main: 'rgb(var(--color-success) / <alpha-value>)'
+          },
+          info: {
+            main: 'rgb(var(--color-info) / <alpha-value>)'
+          },
+          warning: {
+            main: 'rgb(var(--color-warning) / <alpha-value>)'
+          },
+          error: {
+            main: 'rgb(var(--color-error) / <alpha-value>)'
+          },
+          disabled: {
+            main: 'var(--color-disabled)'
+          }
+        },
+        primary: {
+          // Customize it on globals.css :root
+          200: 'rgb(var(--tw-clr-primary-200) / <alpha-value>)',
+          300: 'rgb(var(--tw-clr-primary-300) / <alpha-value>)',
+          400: 'rgb(var(--tw-clr-primary-400) / <alpha-value>)',
+          500: 'rgb(var(--tw-clr-primary-500) / <alpha-value>)'
+        },
+        dark: '#222222'
+      },
+      boxShadow: {
+        'prompt-light':
+          '0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)',
+        'prompt-dark': 'inset 0 1px 0 0 hsl(0deg 0% 100% / 5%)'
+      },
+      backgroundImage: {
+        'overlay-dark':
+          'linear-gradient(to bottom, #2424249c 0%, rgba(10, 25, 41, 0) 30%, rgba(10, 25, 41, 0) 70%, #32323273 100%)',
+        'overlay-light':
+          'linear-gradient(to bottom, #ffffff69 0%, #0a192900 30%, #0a192900 70%, #a7a7a73d 100%)',
+        'left-overlay-light':
+          'linear-gradient(to right, #ffffff70, #ffffff00);',
+        'left-overlay-dark': 'linear-gradient(to right, #242424, #34343400);'
+      },
+      zIndex: {
+        prompt: '60'
       }
     }
   },
-  plugins: []
+  plugins: [require('prettier-plugin-tailwindcss')]
 };
