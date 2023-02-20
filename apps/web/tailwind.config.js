@@ -42,15 +42,6 @@ module.exports = {
           '0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)',
         'prompt-dark': 'inset 0 1px 0 0 hsl(0deg 0% 100% / 5%)'
       },
-      backgroundImage: {
-        'overlay-dark':
-          'linear-gradient(to bottom, #2424249c 0%, rgba(10, 25, 41, 0) 30%, rgba(10, 25, 41, 0) 70%, #32323273 100%)',
-        'overlay-light':
-          'linear-gradient(to bottom, #ffffff69 0%, #0a192900 30%, #0a192900 70%, #a7a7a73d 100%)',
-        'left-overlay-light':
-          'linear-gradient(to right, #ffffff70, #ffffff00);',
-        'left-overlay-dark': 'linear-gradient(to right, #242424, #34343400);'
-      },
       zIndex: {
         prompt: '60'
       }
