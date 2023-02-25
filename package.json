@@ -1,7 +1,7 @@
 {
-  "name": "mdirshaddev.github.io",
-  "homepage": "https://mdirshaddev.github.io",
-  "description": "",
+  "name": "mdirshaddev.vercel.app",
+  "homepage": "https://mdirshaddev.vercel.app",
+  "description": "My Personal Workspace",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -28,7 +28,6 @@
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "@next/font": "^13.1.6",
     "next": "^13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

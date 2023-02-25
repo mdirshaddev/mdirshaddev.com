@@ -28,6 +28,13 @@
     "ms-kubernetes-tools.vscode-kubernetes-tools",
     "nrwl.angular-console",
     "prisma.prisma",
-    "mechatroner.rainbow-csv"
+    "mechatroner.rainbow-csv",
+    "wix.vscode-import-cost",
+    "bierner.markdown-checkbox",
+    "bierner.markdown-emoji",
+    "bierner.markdown-mermaid",
+    "ibm.output-colorizer",
+    "johnpapa.vscode-peacock",
+    "pflannery.vscode-versionlens"
   ]
 }
