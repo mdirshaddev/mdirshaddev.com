@@ -1,9 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling your project before committing 👷‍♂️🏗️'
+echo '🏗️👷 Checking your project before committing 👷‍♂️🏗️'
 echo 'please be patient, this may take a while...'
 
+echo 'Running prettier format'
 # Checking prettier formatting
 pnpm run format ||
 (
@@ -12,10 +13,19 @@ pnpm run format ||
   false;
 )
 
+echo 'Running Storybook build'
+pnpm --filter web build-storybook ||
+(
+  echo '🔨❌ Yoo, you have a problem in your stories or react code. Check Build 🔨❌
+    Run pnpm --filter web build-storybook, add changes and try commit again.';
+  false;
+)
+
+echo 'Running Web build'
 pnpm --filter web build ||
 (
-  echo '🔨❌ Yoo, you have a problem in your code. Check Build 🔨❌
-    Run pnpm run build, add changes and try commit again.';
+  echo '🔨❌ Yoo, you have a problem in your nextjs server or react code. Check Build 🔨❌
+    Run pnpm --filter web build, add changes and try commit again.';
   false;
 )
 

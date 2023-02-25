@@ -34,7 +34,8 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "none",
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -71,18 +72,12 @@
   "[css]": {
     "editor.suggest.insertMode": "replace",
     "gitlens.codeLens.scopes": ["document"],
-    "tailwindCSS.codeActions": true,
-    "tailwindCSS.lint.cssConflict": "error",
-    "editor.tabSize": 2
-  },
-  "[tailwindcss]": {
-    "tailwindCSS.validate": true,
     "editor.tabSize": 2
   },
   "[python]": {
     "diffEditor.ignoreTrimWhitespace": false,
     "gitlens.codeLens.symbolScopes": ["!Module"],
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.tabSize": 4
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 4
+  }
 }

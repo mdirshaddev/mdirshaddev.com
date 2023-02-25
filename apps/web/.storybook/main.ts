@@ -2,7 +2,11 @@ import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
   staticDirs: ['../public'],
-  stories: ['../src/stories/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../app/**/*.stories.@(js|jsx|ts|tsx)',
+    '../src/stories/*.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)'
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -16,4 +20,5 @@ const config: StorybookConfig = {
     autodocs: 'tag'
   }
 };
+
 export default config;

@@ -1,4 +1,4 @@
-const { join } = require('path');
+import { join } from 'path';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -28,4 +28,4 @@ const nextConfig = {
   }
 };
 
-module.exports = nextConfig;
+export default nextConfig;

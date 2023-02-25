@@ -1,8 +1,16 @@
-import '../src/styles/global.css';
-
 export const parameters = {
   backgrounds: {
-    default: 'light'
+    default: 'dark',
+    values: [
+      {
+        name: 'dark',
+        value: '#0f172a'
+      },
+      {
+        name: 'light',
+        value: '#fff'
+      }
+    ]
   },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -13,5 +21,10 @@ export const parameters = {
   },
   nextjs: {
     appDirectory: true
+  },
+  options: {
+    storySort: {
+      order: ['About', '*']
+    }
   }
 };
