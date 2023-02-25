@@ -1,4 +1,0 @@
-/**
- * Google Analytics Service
- */
-export {};
