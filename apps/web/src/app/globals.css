@@ -75,15 +75,3 @@
 
 @layer utilities {
 }
-
-/* Storybook Customisation */
-.storybook-app {
-  @apply !bg-white dark:!bg-black;
-}
-
-.story-container {
-  margin: 0;
-  padding: 1rem;
-  display: block;
-  box-sizing: border-box;
-}
