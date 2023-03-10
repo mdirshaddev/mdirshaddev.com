@@ -1,0 +1,3 @@
+.main-content {
+  @apply mx-auto min-h-screen flex flex-col overflow-x-hidden overflow-y-auto;
+}

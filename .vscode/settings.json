@@ -1,6 +1,5 @@
 {
   // Editor
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnPaste": true,
@@ -16,7 +15,10 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true
+    "**/Thumbs.db": true,
+    "**/node_modules": false,
+    "**/.next": false,
+    "**/.pnpm-store": false
   },
   // Git graph
   "git-graph.date.format": "Date & Time",
@@ -65,11 +67,13 @@
     "editor.tabSize": 2
   },
   "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.suggest.insertMode": "replace",
     "gitlens.codeLens.scopes": ["document"],
     "editor.tabSize": 2
   },
   "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.suggest.insertMode": "replace",
     "gitlens.codeLens.scopes": ["document"],
     "editor.tabSize": 2
@@ -79,5 +83,11 @@
     "gitlens.codeLens.symbolScopes": ["!Module"],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.tabSize": 4
-  }
+  },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "tailwindCSS.validate": true,
+  "css.validate": false // to disable lint error for scss nesting feature
 }

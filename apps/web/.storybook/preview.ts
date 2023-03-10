@@ -1,16 +1,8 @@
+import '../src/app/globals.css';
+
 export const parameters = {
   backgrounds: {
-    default: 'dark',
-    values: [
-      {
-        name: 'dark',
-        value: '#0f172a'
-      },
-      {
-        name: 'light',
-        value: '#fff'
-      }
-    ]
+    default: 'dark'
   },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

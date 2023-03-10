@@ -18,17 +18,26 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
+    "@storybook/addon-essentials": "7.0.0-beta.64",
+    "@storybook/addon-interactions": "7.0.0-beta.64",
+    "@storybook/addon-links": "7.0.0-beta.64",
+    "@storybook/blocks": "7.0.0-beta.64",
+    "@storybook/nextjs": "7.0.0-beta.64",
+    "@storybook/react": "7.0.0-beta.64",
+    "@storybook/testing-library": "0.0.14-next.1",
+    "eslint-plugin-storybook": "^0.6.11",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "eslint": "^8.33.0",
-    "eslint-config-next": "^13.1.6",
+    "eslint-config-next": "^13.2.3",
     "husky": "^8.0.3",
     "prettier": "^2.8.3",
+    "storybook": "7.0.0-beta.64",
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "next": "^13.1.6",
+    "next": "^13.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

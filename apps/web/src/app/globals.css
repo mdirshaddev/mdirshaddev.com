@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-500;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  *,
+  *::after,
+  *::before {
+    @apply m-0 p-0 box-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-slate-900 overflow-hidden overscroll-x-none min-h-screen select-none max-w-[100vw] overflow-y-auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .cursor-newtab {
+    cursor: url('/shared/new-tab.png') 10 10, pointer;
+  }
+
+  img {
+    user-select: none;
+  }
+  button {
+    user-select: none;
+  }
+}
+
+@layer components {
+  /* Background grid similar implementation from Astro.build website - Start */
+  .bg-grid {
+    @apply bg-grid;
+    background-size: 20px 20px;
+    background-position: top center;
+    image-rendering: pixelated;
+  }
+  /* Background grid similar implementation from Astro.build website - End */
+
+  /* Cookie Banner - Start */
+  .poppy-cookie-banner {
+    @apply fixed ring-1 ring-teal-400 rounded-2xl bg-black/40 backdrop-blur-xl px-5 py-6 left-5 right-5 bottom-5 sm:left-10 sm:right-10 sm:bottom-10 md:bottom-14 md:right-10 md:left-auto;
+    padding: 1.9375rem 2.125rem;
+  }
+
+  .poppy-cookie-banner-text {
+    @apply text-white w-full md:max-w-xs;
+  }
+
+  .poppy-cookie-buttons {
+    @apply flex flex-row items-center;
+  }
+  /* Cookie Banner - End */
+}
+
+@layer utilities {
+}
+
+/* Storybook Customisation */
+.storybook-app {
+  @apply !bg-white dark:!bg-black;
+}
+
+.story-container {
+  margin: 0;
+  padding: 1rem;
+  display: block;
+  box-sizing: border-box;
+}
