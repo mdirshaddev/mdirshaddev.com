@@ -5,7 +5,13 @@ import {} from 'framer-motion';
 
 export function Analytics() {
   return (
-    <section className={clsx('relative overflow-hidden', 'py-8 md:py-16')}>
+    <section
+      className={clsx(
+        'relative overflow-hidden',
+        'bg-[#0d1117] bg-glow bg-no-repeat bg-cover',
+        'py-8 md:py-16',
+        'h-[700px]'
+      )}>
       {/* Place animated backgrounds or any other effects */}
       <div className='absolute'></div>
       <article className='w-full max-w-[1200px] mx-auto'>

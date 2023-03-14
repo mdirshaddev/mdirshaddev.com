@@ -8,28 +8,27 @@ export function SocialLinks() {
       id: 'resume',
       href: 'https://github.com/mdirshaddev/mdirshaddev/raw/main/Md%20Irshad%20(RESUME).pdf',
       title: 'Resume',
-      icon: <IoNewspaperOutline className='shrink-0 w-6 h-6 text-white' />
+      icon: <IoNewspaperOutline className='shrink-0 w-4 h-4 text-white' />
     },
     {
       id: 'twitter',
       href: 'https://twitter.com/mdirshaddev',
       title: '@mdirshaddev',
       icon: (
-        <FaTwitter className='shrink-0 w-6 h-6 transition-colors text-[#1da1f2]' />
+        <FaTwitter className='shrink-0 w-4 h-4 transition-colors text-[#1da1f2]' />
       )
     },
     {
       id: 'github',
       href: 'https://github.com/mdirshaddev',
       title: '@mdirshaddev',
-      icon: <FaGithub className='shrink-0 w-6 h-6 text-white' />
+      icon: <FaGithub className='shrink-0 w-4 h-4 text-white' />
     }
   ];
   return (
     <div
-      data-fade='6'
       className={clsx(
-        'flex flex-wrap items-center justify-center gap-4 gap-y-2',
+        'flex flex-wrap items-center justify-center sm:justify-start gap-4 gap-y-2',
         'mt-4'
       )}>
       {socialLinks.map(({ id, title, href, icon }) => (
@@ -40,7 +39,7 @@ export function SocialLinks() {
           href={href}
           className='inline-flex items-center gap-1 text-sm font-medium md:text-base text-white focus:outline-none focus-visible:ring focus-visible:ring-palette-primary transition-colors cursor-newtab'>
           {icon}
-          <span className='text-lg md:text-2xl'>{title}</span>
+          <span className='text-base'>{title}</span>
         </a>
       ))}
     </div>

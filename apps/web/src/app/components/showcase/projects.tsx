@@ -4,6 +4,9 @@ import clsx from 'clsx';
 
 import { RxExit } from 'react-icons/rx';
 
+import { animations, motion } from 'framer-motion';
+import { FadeIn } from 'src/shared/components/animations/GlitchText/FadeIn';
+
 export function Projects() {
   const leftImageList = [
     {
@@ -46,64 +49,76 @@ export function Projects() {
         perspective: '1000px'
       }}
       className={clsx('relative h-full -my-0 lg:-my-28')}>
-      <div
-        style={{
-          transform:
-            'translateX(-40%) rotateZ(-30deg) rotateX(8deg) rotateY(8deg)',
-          transformOrigin: 'center center'
-        }}
-        className={clsx('absolute -z-10 flex left-[43%] lg:left-[60%]')}>
-        <div className='grid grid-row-1 gap-10 lg:gap-12'>
-          {leftImageList.map(({ id, src, href }) => (
-            <a
-              key={id}
-              href={href}
-              rel='noopener'
-              target='_blank'
-              className={clsx(
-                'group w-[250px] h-min p-1 sm:w-[300px] xl:w-[450px] bg-slate-800 rounded-md'
-              )}>
-              <picture className='relative'>
-                <img decoding='async' src={src} alt={id} />
-                <div
-                  className={clsx(
-                    'transition-all absolute top-0 left-0 w-full h-full group-hover:bg-teal-400/20',
-                    'flex flex-row items-center justify-center cursor-newtab'
-                  )}>
-                  <p className='text-white font-bold underline hidden group-hover:flex flex-row items-center'>
-                    Go to Website <RxExit className='w-6 h-6 ml-2' />
-                  </p>
-                </div>
-              </picture>
-            </a>
-          ))}
+      <FadeIn onlyOnce={true}>
+        <div
+          style={{
+            transform:
+              'translateX(-40%) rotateZ(-30deg) rotateX(8deg) rotateY(8deg)',
+            transformOrigin: 'center center'
+          }}
+          className={clsx('absolute -z-10 flex left-[43%] lg:left-[60%]')}>
+          <div className='grid grid-row-1 gap-10 lg:gap-12 animate-template-slidedown'>
+            {leftImageList.map(({ id, src, href }) => (
+              <a
+                key={id}
+                href={href}
+                rel='noopener'
+                target='_blank'
+                className={clsx(
+                  'group w-[250px] h-min p-[6px] sm:w-[300px] xl:w-[450px] bg-slate-800 rounded-md'
+                )}>
+                <picture className='relative'>
+                  <img
+                    decoding='async'
+                    src={src}
+                    alt={id}
+                    className='rounded-md'
+                  />
+                  <div
+                    className={clsx(
+                      'transition-all absolute top-0 left-0 w-full h-full rounded-md group-hover:bg-teal-400/20',
+                      'flex flex-row items-center justify-center cursor-newtab'
+                    )}>
+                    <p className='text-white font-bold underline hidden group-hover:flex flex-row items-center'>
+                      Go to Website <RxExit className='w-6 h-6 ml-2' />
+                    </p>
+                  </div>
+                </picture>
+              </a>
+            ))}
+          </div>
+          <div className='grid grid-row-1 ml-12 mt-16 lg:ml-16 gap-10 lg:gap-12 animate-template-slideup'>
+            {rightImageList.map(({ id, src, href }) => (
+              <a
+                key={id}
+                href={href}
+                rel='noopener'
+                target='_blank'
+                className={clsx(
+                  'group w-[250px] h-min p-[6px] sm:w-[300px] xl:w-[450px] bg-slate-800 rounded-md'
+                )}>
+                <picture className='relative'>
+                  <img
+                    decoding='async'
+                    src={src}
+                    alt={id}
+                    className='rounded-md'
+                  />
+                  <div
+                    className={clsx(
+                      'transition-all absolute top-0 left-0 w-full h-full rounded-md group-hover:bg-teal-400/20',
+                      'flex flex-row items-center justify-center cursor-newtab'
+                    )}>
+                    <p className='text-white font-bold underline hidden group-hover:flex flex-row items-center'>
+                      Go to Website <RxExit className='w-6 h-6 ml-2' />
+                    </p>
+                  </div>
+                </picture>
+              </a>
+            ))}
+          </div>
         </div>
-        <div className='grid grid-row-1 ml-12 mt-16 lg:ml-16 gap-10 lg:gap-12'>
-          {rightImageList.map(({ id, src, href }) => (
-            <a
-              key={id}
-              href={href}
-              rel='noopener'
-              target='_blank'
-              className={clsx(
-                'group w-[250px] h-min p-1 sm:w-[300px] xl:w-[450px] bg-slate-800 rounded-md'
-              )}>
-              <picture className='relative'>
-                <img decoding='async' src={src} alt={id} />
-                <div
-                  className={clsx(
-                    'transition-all absolute top-0 left-0 w-full h-full group-hover:bg-teal-400/20',
-                    'flex flex-row items-center justify-center cursor-newtab'
-                  )}>
-                  <p className='text-white font-bold underline hidden group-hover:flex flex-row items-center'>
-                    Go to Website <RxExit className='w-6 h-6 ml-2' />
-                  </p>
-                </div>
-              </picture>
-            </a>
-          ))}
-        </div>
-      </div>
+      </FadeIn>
     </div>
   );
 }

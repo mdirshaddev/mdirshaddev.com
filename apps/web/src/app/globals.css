@@ -30,7 +30,7 @@
   }
 
   body {
-    @apply bg-slate-900 overflow-hidden overscroll-x-none min-h-screen select-none max-w-[100vw] overflow-y-auto;
+    @apply bg-[#0d1117] overflow-hidden overscroll-x-none min-h-screen select-none max-w-[100vw] overflow-y-auto;
     background-size: cover;
     background-repeat: no-repeat;
   }

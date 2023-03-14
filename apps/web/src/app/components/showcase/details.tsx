@@ -56,7 +56,7 @@ function DesktopList() {
   const [selected, setSelected] = useState(swipeListOptions[0].id);
   console.log(selected);
   return (
-    <div className='hidden lg:grid grid-cols-2 grid-rows-2 gap-4 pr-4'>
+    <div className='hidden lg:grid grid-cols-2 grid-rows-2 gap-4 pr-0'>
       {swipeListOptions.map(({ id, title, src, href, content }) => {
         return (
           <motion.button
@@ -78,26 +78,23 @@ function DesktopList() {
 }
 
 function MobileList() {
+  const constraintRef = useRef<HTMLDivElement>(null);
   return (
     <AnimatePresence>
-      <div className=''>
-        <motion.div
-          whileTap={{ cursor: 'grabbing' }}
-          className={clsx('block lg:hidden')}>
-          <motion.div
-            drag='x'
-            dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
-            className='flex flex-row gap-4 pr-[33%]'>
-            {swipeListOptions.map(({ id, title, src, href, content }) => {
-              return (
-                <motion.div
-                  key={id}
-                  className='w-full md:max-w-md h-44 bg-slate-900 ring-1 ring-slate-700 flex-shrink-0 rounded-md overflow-auto'>
-                  <div></div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+      <div className='w-full lg:hidden h-44' ref={constraintRef}>
+        <motion.div drag='x' draggable className='flex flex-row gap-4'>
+          {swipeListOptions.map(({ id, title, src, href, content }) => {
+            return (
+              <motion.button
+                key={id}
+                title={title}
+                type='button'
+                aria-label={title}
+                className={clsx(
+                  'w-full md:max-w-md h-44 bg-slate-900 ring-1 ring-slate-700 flex-shrink-0 rounded-md overflow-auto'
+                )}></motion.button>
+            );
+          })}
         </motion.div>
       </div>
     </AnimatePresence>

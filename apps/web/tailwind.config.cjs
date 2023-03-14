@@ -6,25 +6,52 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        sm: '320px',
-        lg: '900px',
-        ...defaultTheme.screens
+        ...defaultTheme.screens,
+        sm: '360px',
+        lg: '900px'
       },
       zIndex: {
+        ...defaultTheme.zIndex,
         globalHeader: 100
       },
+      boxShadow: {
+        navListItemShadow: '-1px 6px 9px 4px #06060661'
+      },
       backgroundImage: {
-        dark: 'url(/bg-main-dark.jpg)',
-        'pixel-grid': 'url(/dark-pixel-grid.svg)',
+        dark: 'url(/bg-dark.jpg)',
+        'pixel-grid': 'url(/pixel-grid.svg)',
+        stars: 'url(/stars.jpg)',
+        glow: 'url(/blur-glow-pry.svg)',
+        'footer-galaxy': 'url(/footer-galaxy.jpg)',
         grid: 'linear-gradient(to right, #818a9f26 1px, transparent 1px),linear-gradient(to bottom, #41454c57 1px, transparent 1px)',
         'shade-dark': 'linear-gradient(to right, #0A1929, rgba(10, 25, 41, 0))'
       },
       animation: {
         wobblyPurple: 'wooblyPurple 11s infinite',
         wooblyPink: 'wooblyPink 11s infinite reverse',
-        wooblyBlue: 'wooblyBlue 11s infinite reverse'
+        wooblyBlue: 'wooblyBlue 11s infinite reverse',
+        'template-slideup':
+          '30s ease-out 0s 1 normal forwards running templateSlideUp',
+        'template-slidedown':
+          '30s ease-out 0s 1 normal forwards running templateSlideDown'
       },
       keyframes: {
+        templateSlideUp: {
+          '0%': {
+            transform: 'translateY(150px)'
+          },
+          '100%': {
+            transform: 'translateY(-20px)'
+          }
+        },
+        templateSlideDown: {
+          '0%': {
+            transform: 'translateY(-20px)'
+          },
+          '100%': {
+            transform: 'translateY(95px)'
+          }
+        },
         wooblyPurple: {
           '0%': {
             transform:

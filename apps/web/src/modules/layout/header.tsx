@@ -1,8 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 import clsx from 'clsx';
 
 import { FaBars } from 'react-icons/fa';
 import Link from 'next/link';
+import { Menu } from './menu';
+import { Fragment } from 'react';
 
+// TODO: Cleanup and composition pattern need here with animation on dropdown and some more consistive behaviour
+// TODO: Also need proper Nav Menu List and it's child items
 export function GlobalHeader() {
   return (
     <header
@@ -10,14 +15,14 @@ export function GlobalHeader() {
         'fixed',
         'top-0 left-0',
         'w-screen h-[64px]',
-        'backdrop-blur-3xl',
+        'backdrop-blur-lg',
         'z-globalHeader'
       )}>
       <div
         className={clsx(
           'w-full max-w-[1200px]',
           'mx-auto h-full',
-          'px-4 md:px-8 lg:px-6 py-2',
+          'px-4 sm:px-6 md:px-8 lg:px-6 py-2',
           'flex flex-row items-center justify-between'
         )}>
         <div className='flex flex-row items-center'>
@@ -26,29 +31,233 @@ export function GlobalHeader() {
             <Link className='font-semibold text-lg text-teal-400' href={'/'}>
               @mdirshaddev
             </Link>
-            <span className='ml-2 bg-white py-[2px] px-2 font-semibold rounded-tl-xl rounded-br-xl rounded-bl-sm rounded-tr-sm'>
+            <span className='ml-2 bg-white text-teal-700 py-[2px] px-2 font-semibold rounded-tl-xl rounded-br-xl rounded-bl-sm rounded-tr-sm'>
               v0.0.0
             </span>
           </div>
-          <nav className='hidden md:block ml-6'>
-            <ul className='flex flex-row items-center'>
-              <li className='mx-2'>
-                <button className='transition-all text-sm md:text-lg flex flex-row items-center gap-1 text-slate-100 font-semibold hover:text-slate-50 hover:bg-[#ffffff4d] hover:rounded-3xl px-3 py-1'>
-                  Blogs
-                  <ChevronDown />
-                </button>
+          <nav className='hidden lg:block ml-6'>
+            <ul className='flex flex-row items-center gap-3'>
+              <li className='mx-2 relative group'>
+                <NavListItemWithDropDown name='Blog'>
+                  <div
+                    className={clsx(
+                      'transition-all absolute bottom-[-370px] left-0 py-6 z-10',
+                      'hidden group-hover:flex'
+                    )}>
+                    <div className='w-[600px] grid grid-cols-2 gap-4 bg-slate-50 shadow-navListItemShadow backdrop-blur-2xl rounded-2xl p-6'>
+                      <div className=''>
+                        <p className='text-[#6d6d9c] font-extrabold text-left cursor-pointer'>
+                          Blog
+                        </p>
+                        <ul className='flex flex-col'>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Featured Posts
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Most Viewed Posts
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                All Stories
+                                <div className='text-base font-normal'>
+                                  Collect of all stories
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Recently Updated
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className='bg-[#0d1117] rounded-2xl'>
+                        <img src='/astrocat.png' alt='' />
+                      </div>
+                    </div>
+                  </div>
+                </NavListItemWithDropDown>
               </li>
-              <li className='mx-2'>
-                <button className='transition-all text-sm md:text-lg flex flex-row items-center gap-1 text-slate-100 font-semibold hover:text-slate-50 hover:bg-[#ffffff4d] hover:rounded-3xl px-3 py-1'>
-                  Projects
-                  <ChevronDown />
-                </button>
+              <li className='mx-2 relative group'>
+                <NavListItemWithDropDown name='Work'>
+                  <div
+                    className={clsx(
+                      'transition-all absolute bottom-[-370px] left-[-107px] py-6 z-20',
+                      'hidden group-hover:flex'
+                    )}>
+                    <div className='w-[600px] grid grid-cols-2 gap-4 bg-slate-50 shadow-navListItemShadow backdrop-blur-2xl rounded-2xl p-6'>
+                      <div className=''>
+                        <p className='text-[#6d6d9c] font-extrabold text-left cursor-pointer'>
+                          Work
+                        </p>
+                        <ul className='flex flex-col'>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Deployed Projects
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Sandbox Projects
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                3rd Party Integrations
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                UI Concepts
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className='bg-[#0d1117] rounded-2xl'>
+                        <img src='/astrocat.png' alt='' />
+                      </div>
+                    </div>
+                  </div>
+                </NavListItemWithDropDown>
               </li>
-              <li className='mx-2'>
-                <button className='transition-all text-sm md:text-lg flex flex-row items-center gap-1 text-slate-100 font-semibold hover:text-slate-50 hover:bg-[#ffffff4d] hover:rounded-3xl px-3 py-1'>
-                  Library
-                  <ChevronDown />
-                </button>
+              <li className='mx-2 relative group'>
+                <NavListItemWithDropDown name='Insights'>
+                  <div
+                    className={clsx(
+                      'transition-all absolute bottom-[-370px] left-[-221px] py-6 z-30',
+                      'hidden group-hover:flex'
+                    )}>
+                    <div className='w-[600px] grid grid-cols-2 gap-4 bg-slate-50 shadow-navListItemShadow backdrop-blur-2xl rounded-2xl p-6'>
+                      <div className=''>
+                        <p className='text-[#6d6d9c] font-extrabold text-left cursor-pointer'>
+                          Insights
+                        </p>
+                        <ul className='flex flex-col'>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Overview Dashboard
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                GitHub Dashboard
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Social Media Statistics
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                          <li className='transition-all px-2 py-1 text-[#030328] hover:bg-teal-500/20 hover:text-teal-800 w-full text-left my-1 rounded-lg'>
+                            <Link
+                              href='/'
+                              className='flex flex-row items-center gap-2 w-full font-normal'>
+                              {/* <MdFeaturedPlayList className='text-teal-500 w-6 h-6' /> */}
+                              <div className='font-medium'>
+                                Web Analytics
+                                <div className='text-base font-normal'>
+                                  Secure your code as it&apos;s written
+                                </div>
+                              </div>
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className='bg-[#0d1117] rounded-2xl'>
+                        <img src='/astrocat.png' alt='' />
+                      </div>
+                    </div>
+                  </div>
+                </NavListItemWithDropDown>
               </li>
               <li className='mx-2'>
                 <button className='transition-all text-sm md:text-lg flex flex-row items-center gap-1 text-slate-100 font-semibold hover:text-slate-50 hover:bg-[#ffffff4d] hover:rounded-3xl px-3 py-1'>
@@ -59,8 +268,8 @@ export function GlobalHeader() {
           </nav>
         </div>
         <div className='flex flex-row items-center'>
-          <div className='block md:hidden'>
-            <FaBars className='text-teal-400 w-5 h-5' />
+          <div className='block lg:hidden'>
+            <Menu />
           </div>
         </div>
       </div>
@@ -71,7 +280,7 @@ export function GlobalHeader() {
 function ChevronDown() {
   return (
     <svg
-      data-testid='geist-icon'
+      className='group-hover:rotate-180'
       fill='none'
       height='14'
       shapeRendering='geometricPrecision'
@@ -90,6 +299,23 @@ function ChevronDown() {
       }}>
       <path d='M6 9l6 6 6-6'></path>
     </svg>
+  );
+}
+
+interface INavListItemWithDropDown extends React.PropsWithChildren {
+  name: string;
+}
+
+// TODO: Animation of reveal from bottom is yet to be added
+function NavListItemWithDropDown(props: INavListItemWithDropDown) {
+  return (
+    <Fragment>
+      <button className='group transition-all text-sm md:text-lg flex flex-row items-center gap-1 text-slate-100 font-semibold hover:text-slate-50 hover:bg-[#ffffff4d] hover:rounded-3xl px-3 py-1'>
+        {props.name}
+        <ChevronDown />
+      </button>
+      {props.children}
+    </Fragment>
   );
 }
 

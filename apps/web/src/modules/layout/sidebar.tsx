@@ -2,7 +2,7 @@
 
 export function Sidebar() {
   return (
-    <div className='sidebar'>
+    <div className=''>
       <div></div>
     </div>
   );

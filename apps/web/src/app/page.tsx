@@ -7,7 +7,7 @@ export default async function Page() {
     <main className='main-content' tabIndex={-1}>
       <Hero />
       <div className='relative'>
-        <div className='absolute inset-0 bg-slate-900' />
+        <div className='absolute inset-0 bg-[#0d1117]' />
         <Showcase />
       </div>
       <Blogs />
